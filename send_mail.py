@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import csv
+from collections import OrderedDict
+from jinja2 import Template
 import pathlib
 import time
-from collections import OrderedDict
-
-from jinja2 import Template
+import csv
 
 from lib.ibm_note import Mail
 
