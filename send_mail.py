@@ -52,10 +52,12 @@ for csv_file_name in csv_file_list:
             message = template.render(rows=result)  # 渲染邮件正文
             mail.send_mail(subject=subject.format(result['员工/申请者姓名']), mail_to=mail_to, message=message)
             # 显示投递结果
+            status_text = '>>> To: {0}\t{1}.'
             if mail.last_response.status_code is 200:
-                print('>>> To: {0} success.'.format(mail_to))
+                print(status_text.format(mail_to, 'success'))
             else:
-                print('>>> To: {0} failed.'.format(mail_to))
+                print(status_text.format(mail_to, 'failed'))
+            # 发件延迟
             time.sleep(delay_time)
 
 
